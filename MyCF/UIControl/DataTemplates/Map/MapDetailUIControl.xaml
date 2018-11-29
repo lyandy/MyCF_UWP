@@ -1,0 +1,69 @@
+﻿<MyControl:UIControlBase
+    xmlns:MyControl="using:MyCF.Base"
+    x:Class="MyCF.UIControl.DataTemplates.MapDetailUIControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:MyCF.UIControl.DataTemplates"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:Extensions="using:MyCF.Extension.DependencyObjectEx"
+    mc:Ignorable="d">
+
+    <Grid x:Name="grid"  Margin="5,0,0,5" Height="260" Background="#FFF2F2F2" Tapped="grid_Tapped" DataContextChanged="grid_DataContextChanged" Opacity="0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <Grid x:Name="gridImg" Height="192" Width="{Binding Path=With,ElementName=grid}">
+            <Image Stretch="Fill" Source="{Binding Path=FirstImageUrl.AsyncValue}" Extensions:ImageEx.FadeInOnLoaded="True" Height="192" Width="{Binding Path=Width,ElementName=gridImg}" VerticalAlignment="Top"/>
+            <Grid VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,3,0,0">
+                <StackPanel  Orientation="Horizontal">
+                    <Path Data="M401,323 L482,402 L398,481 L560,481 L560,323" Fill="{Binding Path=MapMarkColor}"  HorizontalAlignment="Left" Stretch="Fill" Stroke="Black" UseLayoutRounding="False" Width="10" Height="13"  d:LayoutOverrides="TopPosition, BottomPosition" Margin="0,0,-1,0" StrokeThickness="0"/>
+                    <Rectangle Height="13" Width="{Binding Path=MapMarkWith}" Fill="{Binding Path=MapMarkColor}"/>
+                </StackPanel>
+                <TextBlock x:Name="tbType" FontFamily="dengxian" Text="{Binding Path=type}" Foreground="White" FontSize="10" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,3,1"/>
+            </Grid>
+            <Grid HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,0,3">
+                <Path x:Name="pathMark" Data="M1020.33,240.667 L980.33,320.333 L1361,320 L1360.67,240.667" Fill="#88000000"  Stretch="Fill" Width="60" Height="19"/>
+                <TextBlock Foreground="White" FontSize="12" HorizontalAlignment="Right" Margin="0,0,3,0">
+                    <Run Text="{Binding picCount}"/>
+                    <Run Text="张图片"/>
+                </TextBlock>
+            </Grid>
+        </Grid>
+        <TextBlock Grid.Row="1" Text="{Binding Path=p_name}" Foreground="#252323" MaxWidth="{Binding Path=Width,ElementName=grid}" FontSize="13" Margin="3,3,3,3"/>
+        <Grid Grid.Row="2" Margin="3,0,0,3" Width="{Binding Path=With,ElementName=grid}">
+            <Line X1="0" X2="1500" Stroke="{StaticResource ApplicationForegroundThemeBrush}" VerticalAlignment="Top" HorizontalAlignment="Center" StrokeThickness="1" StrokeDashArray="1,2" />
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="0,3,0,0">
+                <Path Data="M30.111013,14.667994C30.561012,14.667994 30.926012,15.032996 30.926012,15.482999 30.926012,15.933002 30.561012,16.298004 30.111013,16.298004 29.660015,16.298004 29.296016,15.933002 29.296016,15.482999 29.296016,15.032996 29.660015,14.667994 30.111013,14.667994z M22.858018,12.712989C23.917993,14.668056 28.235895,15.810096 28.235895,15.810096 32.472801,19.802233 34.184761,14.994067 34.184761,14.994067 34.917743,11.897961 32.799793,13.039001 32.799793,13.039001 27.747905,16.787128 22.858018,12.712989 22.858018,12.712989z M11.33273,8.0855417C13.425235,8.0461521 15.811744,8.7480583 17.683765,11.368216 17.683765,11.368216 19.761719,16.013163 18.659744,20.65811 18.659744,20.65811 8.0269799,18.702131 4.6040556,23.347078 4.6040561,23.347078 2.5261023,25.425055 5.3370394,30.436996 5.3370398,30.436996 -7.3746781,20.65811 6.4380145,9.4122381 6.4380153,9.4122381 8.6423688,8.1361866 11.33273,8.0855417z M41.763532,0L38.666589,1.7929991C38.666589,1.7929997,49.586423,2.2819982,54.312376,11.24599L53.497381,11.24599C53.497381,11.24599 56.185338,18.457005 57.653333,29.825003 57.653333,29.825003 61.076261,46.082012 62.42024,46.449001 62.42024,46.449001 64.498212,51.46101 63.88622,56.350002 63.88622,56.350002 61.930254,56.716 54.964345,50.23901 54.964345,50.23901 55.086355,56.227001 53.497381,58.18301 53.497381,58.18301 47.752462,53.661007 47.629419,52.072002 47.629419,52.072002 46.407449,58.18301 44.818483,59.039001 44.818483,59.039001 41.762495,57.204998 39.929571,51.583004 39.929571,51.583004 38.339567,59.528015 35.895629,60.261002 35.895629,60.261002 34.062646,58.79501 31.740655,52.316006 31.740655,52.316006 30.273695,57.816998 27.950727,59.161011 27.950727,59.161011 25.261737,56.839001 24.405731,50.972012 24.405731,50.972012 22.205808,56.227001 18.293813,58.061001 18.293813,58.061001 16.338883,55.493999 16.58186,51.827007 16.58186,51.827007 13.771901,54.51701 7.6599815,54.760998 7.6599826,54.760998 16.46089,35.082008 16.826852,28.480993 16.826852,28.480993 13.404901,23.347006 5.9490065,23.957998 5.9490069,23.957998 7.2929831,20.291004 20.372826,22.246998 20.372826,22.246998 22.694755,12.670993 16.826852,7.9859948 16.826852,7.9859943 22.693779,0.48899853 41.763532,0z"  Stretch="Uniform" Fill="Gray" Width="12" Height="12" Margin="0,1,5,0"/>
+                <TextBlock Text="{Binding Path=p_author}" FontSize="12" VerticalAlignment="Center" Foreground="Gray" Margin="0,0,0,0"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,3,0">
+                <Path Data="M1226.94,-509.417L1225.73,-511.508 1216.45,-511.508 1220.58,-518.656 1219.37,-520.749 1216.95,-520.749 1211.62,-511.508 1197.23,-511.508 1204.43,-523.968 1215.1,-523.968 1216.3,-526.061 1215.1,-528.152 1206.84,-528.152 1211.48,-536.191 1210.28,-538.285 1207.86,-538.285 1203.22,-530.246 1199.09,-537.391 1196.67,-537.391 1195.47,-535.299 1200.8,-526.061 1193.61,-513.602 1186.42,-526.061 1191.75,-535.299 1190.54,-537.391 1188.13,-537.391 1184,-530.246 1179.36,-538.285 1176.94,-538.285 1175.73,-536.191 1180.37,-528.152 1172.12,-528.152 1170.91,-526.061 1172.12,-523.968 1182.79,-523.968 1189.98,-511.508 1175.6,-511.51 1170.26,-520.749 1167.85,-520.749 1166.64,-518.656 1170.77,-511.51 1161.48,-511.51 1160.28,-509.417 1161.48,-507.325 1170.77,-507.325 1166.64,-500.178 1167.85,-498.085 1170.26,-498.087 1175.6,-507.325 1189.98,-507.325 1182.79,-494.866 1172.12,-494.866 1170.91,-492.774 1172.12,-490.681 1180.37,-490.681 1175.73,-482.643 1176.94,-480.549 1179.36,-480.549 1184,-488.589 1188.13,-481.442 1190.54,-481.442 1191.75,-483.536 1186.42,-492.774 1193.61,-505.232 1200.8,-492.774 1195.47,-483.536 1196.67,-481.442 1199.09,-481.442 1203.22,-488.587 1207.86,-480.549 1210.28,-480.549 1211.48,-482.643 1206.84,-490.681 1215.1,-490.681 1216.3,-492.774 1215.1,-494.866 1204.43,-494.866 1197.23,-507.325 1211.62,-507.325 1216.95,-498.087 1219.37,-498.087 1220.58,-500.178 1216.45,-507.325 1225.73,-507.325 1226.94,-509.417z"  Stretch="Uniform" Fill="Gray" Width="12" Height="12" Margin="0,0,5,0"/>
+                <TextBlock FontSize="12" VerticalAlignment="Center" Foreground="Gray" Margin="0,0,0,0">
+                    <Run Text="模式："/>
+                    <Run Text="{Binding Path=mode}"/>
+                </TextBlock>
+            </StackPanel>
+        </Grid>
+        <Grid Grid.Row="3" Margin="3,0,3,3" Width="{Binding Path=With,ElementName=grid}">
+            <Line X1="0" X2="1500" Stroke="{StaticResource ApplicationForegroundThemeBrush}" VerticalAlignment="Top" HorizontalAlignment="Center" StrokeThickness="1" StrokeDashArray="1,2"/>
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="0,3,0,0">
+                <Path Data="M61.3577,14.4764C61.2181,14.0168,60.8086,13.677,60.304,13.677L7.28613,13.677C6.83594,13.677 6.45734,13.8567 6.25812,14.1926 2.52667,20.9491 8.24963,24.3893 9.31213,29.457 7.61945,37.2655 0.976868,40.121 1.17151,49.8125 6.25745,50.8319 10.9869,52.2096 17.4547,51.8502 20.2923,46.5442 21.236,39.3463 25.5967,35.5651 30.2526,35.9987 34.2259,37.1145 39.8453,36.5833 43.2067,34.8567 41.6058,28.1666 44.9349,26.4036 50.0218,26.4036 55.1123,26.4036 60.2008,26.4036 60.3717,21.8295 63.5615,18.7825 61.3577,14.4764z M38.3746,34.6172C34.2711,35.3202 28.8802,34.3242 27.0719,32.5494 27.0996,32.4491 27.1338,32.3489 27.1338,32.2395L27.1338,28.7487C28.068,27.6705 30.2721,32.6185 32.0201,32.5 34.4805,31.7526 29.3096,27.5311 32.0201,26.1445 34.1387,26.1445 36.2568,26.1445 38.3746,26.1445 39.9319,27.6862 39.9339,33.0768 38.3746,34.6172z" Stretch="Uniform" Fill="Gray" Width="12" Height="12" Margin="0,0,5,0"/>
+                <TextBlock FontSize="12" VerticalAlignment="Center" Foreground="Gray" Margin="0,0,0,0">
+                    <Run Text="武器："/>
+                    <Run Text="{Binding Path=weapons}"/>
+                </TextBlock>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Right">
+                <Path Data="M27.088987,0C27.677587,2.4401913 32.566898,9.1158848 38.277809,13.395906 44.521419,18.075609 54.190536,21.269609 54.121635,32.298214 53.997135,51.172817 36.182327,55.144855 28.449829,41.878605L28.324354,41.653709 28.467046,42.547512C31.578098,60.437893,47.017997,64,47.017997,64L7.1049992,64C22.216669,60.009254,25.436153,48.475124,25.972582,41.656013L26.001924,41.243294 25.979175,41.287987C18.217514,55.884544 0.12199795,51.32032 0.00041454482,32.178413 -0.072461889,21.14971 9.4795548,17.686308 15.840266,13.276007 22.008278,9.0000038 26.400285,2.4909711 27.088987,0z"   Stretch="Uniform" Fill="Gray" Width="12" Height="12" Margin="0,0,5,0"/>
+                <TextBlock FontSize="12" VerticalAlignment="Center" Foreground="Gray" Margin="0,0,0,0">
+                    <Run Text="阵营："/>
+                    <Run Text="{Binding Path=camp}"/>
+                </TextBlock>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</MyControl:UIControlBase>

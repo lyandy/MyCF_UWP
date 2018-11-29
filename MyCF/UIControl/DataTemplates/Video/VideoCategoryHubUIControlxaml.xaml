@@ -1,0 +1,15 @@
+﻿<UserControl
+    x:Class="MyCF.UIControl.DataTemplates.VideoCategoryHubUIControlxaml"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:MyCF.UIControl.DataTemplates"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="300"
+    d:DesignWidth="400">
+
+    <Grid Background="{Binding Path=color}" Width="180" Height="80" Margin="5" Tapped="Grid_Tapped" DataContextChanged="grid_DataContextChanged" Opacity="0">
+        <TextBlock Text="{Binding Path=CategoryName}" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" FontSize="20"/>
+    </Grid>
+</UserControl>

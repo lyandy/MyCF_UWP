@@ -1,0 +1,77 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:Template="using:MyCF.UIControl.DataTemplates"
+    xmlns:UIContorl="using:MyCF.UIControl.UserControls.SliderViewUICtrl"
+    xmlns:Selector="using:MyCF.Selector">
+
+    <!--CF类别分类模板-->
+    <DataTemplate x:Key="CategoryDataTemplate">
+        <Template:CategoryUIControl/>
+    </DataTemplate>
+    
+    <!--视频库类别PivotItem样式-->
+    <DataTemplate x:Key="VideoCategoryPivotDataTemplate">
+        <Template:VideoCategoryPivotUIControl/>
+    </DataTemplate>
+
+    <!--视频库类别HubSection样式-->
+    <DataTemplate x:Key="VideoCategoryHubDataTemplate">
+        <Template:VideoCategoryHubUIControlxaml/>
+    </DataTemplate>
+    
+    <!--情报站-非活动类条目数据模板-->
+    <DataTemplate x:Key="NewsCommonDataTemplate">
+        <Template:NewsCommonUIControl/>
+    </DataTemplate>
+
+    <!--情报站-活动类条目数据模板-->
+    <DataTemplate x:Key="NewsActivityDataTemplate">
+        <Template:NewsActivityUIControl/>
+    </DataTemplate>
+    
+    <!--情报站-手机端-非活动类条目数据模板-->
+    <DataTemplate x:Key="NewsCommonMobileDataTemplate">
+        <Template:NewsCommonMobileUIControl/>
+    </DataTemplate>
+
+    <!--情报站-手机端-资讯类ListView顶部banner幻灯模板。注意：手机端右banner，电脑端无banner-->
+    <DataTemplate x:Key="ListViewHeaderDataTemplate">
+        <Selector:ListViewHeaderDataTemplateSelector Content="{Binding}">
+            <Selector:ListViewHeaderDataTemplateSelector.HeaderNormalDataTemplate>
+                <DataTemplate>
+                    <UIContorl:SliderViewUIControl/>
+                </DataTemplate>
+            </Selector:ListViewHeaderDataTemplateSelector.HeaderNormalDataTemplate>
+            <Selector:ListViewHeaderDataTemplateSelector.HeaderNullDataTemplate>
+                <DataTemplate/>
+            </Selector:ListViewHeaderDataTemplateSelector.HeaderNullDataTemplate>
+        </Selector:ListViewHeaderDataTemplateSelector>
+    </DataTemplate>
+
+    <!--情报站-手机端-活动类条目数据模板-->
+    <DataTemplate x:Key="NewsActivityMobileDataTemplate">
+        <Template:NewsActivityMobileUIControl/>
+    </DataTemplate>
+    
+    <!--平板视频列表条目数据模板-->
+    <DataTemplate x:Key="VideoListDataTemplate">
+        <Template:VideoListUIControl/>
+    </DataTemplate>
+    
+    <!--火线百科-武器展示数据模板-->
+    <DataTemplate x:Key="EncyWeaponDataTemplate">
+        <Template:EncyWeaponUIControl/>
+    </DataTemplate>
+    
+    <!--地图点位-地图列表数据模板-->
+    <DataTemplate x:Key="MapListDataTemplate">
+        <Template:MapListUIControl/>
+    </DataTemplate>
+    
+    <!--地图点位-地图点位详细数据模板-->
+    <DataTemplate x:Key="MapDetailDataTemplate">
+        <Template:MapDetailUIControl/>
+    </DataTemplate>
+
+</ResourceDictionary>

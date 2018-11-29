@@ -1,0 +1,507 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProjectGuid>{14CBEF1D-BB2A-43F4-964E-EF9B07C07AE4}</ProjectGuid>
+    <OutputType>AppContainerExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MyCF</RootNamespace>
+    <AssemblyName>MyCF</AssemblyName>
+    <DefaultLanguage>zh-CN</DefaultLanguage>
+    <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
+    <TargetPlatformVersion>10.0.10240.0</TargetPlatformVersion>
+    <TargetPlatformMinVersion>10.0.10240.0</TargetPlatformMinVersion>
+    <MinimumVisualStudioVersion>14</MinimumVisualStudioVersion>
+    <EnableDotNetNativeCompatibleProfile>true</EnableDotNetNativeCompatibleProfile>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{A5A43C5B-DE2A-4C0C-9213-0A381AF9435A};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <PackageCertificateKeyFile>MyCF_StoreKey.pfx</PackageCertificateKeyFile>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <AppxAutoIncrementPackageRevision>False</AppxAutoIncrementPackageRevision>
+    <AppxSymbolPackageEnabled>False</AppxSymbolPackageEnabled>
+    <AppxBundlePlatforms>x86|x64|arm</AppxBundlePlatforms>
+    <PackageCertificateThumbprint>B61831CEA250EEC4E92EAE36679DE0A56A891BFA</PackageCertificateThumbprint>
+    <AppxBundle>Always</AppxBundle>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\ARM\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|ARM'">
+    <OutputPath>bin\ARM\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <ItemGroup>
+    <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
+    <None Include="MyCF_StoreKey.pfx" />
+    <None Include="project.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Api\ApiRoot\ApiEncyRoot.cs" />
+    <Compile Include="Api\ApiRoot\ApiMapRoot.cs" />
+    <Compile Include="Api\ApiRoot\ApiNewsRoot.cs" />
+    <Compile Include="Api\ApiRoot\ApiVideoRoot.cs" />
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Async\AsyncProperty.cs" />
+    <Compile Include="Async\EventAsync.cs" />
+    <Compile Include="Base\ClassBase.cs" />
+    <Compile Include="Base\ModelBase.cs" />
+    <Compile Include="Base\ModelPropertyBase.cs" />
+    <Compile Include="Base\UIControlBase.cs" />
+    <Compile Include="Base\ViewModelAttributeBase.cs" />
+    <Compile Include="Common\RelayCommand.cs" />
+    <Compile Include="Common\NavigationHelper.cs" />
+    <Compile Include="Common\SuspensionManager.cs" />
+    <Compile Include="Config\AppEnvironment.cs" />
+    <Compile Include="Config\CacheConfig.cs" />
+    <Compile Include="Const\AppCacheNewsFileNameConst.cs" />
+    <Compile Include="Const\AppCommonConst.cs" />
+    <Compile Include="Const\AppCommonMsgConst.cs" />
+    <Compile Include="Const\AppMessengerTokenConst.cs" />
+    <Compile Include="Const\AppNetworkMessageConst.cs" />
+    <Compile Include="Const\AppPageIndexConst.cs" />
+    <Compile Include="Converter\BoolToARGBConverter.cs" />
+    <Compile Include="Converter\BoolToVisibilityConverter.cs" />
+    <Compile Include="Converter\BoolToAppBarButtonIconConverter.cs" />
+    <Compile Include="Converter\BoolToAppBarButtonLabelConverter.cs" />
+    <Compile Include="Encrypt\MD5Core.cs" />
+    <Compile Include="Extension\CommandEx\ListViewCommandEx.cs" />
+    <Compile Include="Extension\CommandEx\PivotCommandEx.cs" />
+    <Compile Include="Extension\CommonObjectEx\CollectionEx.cs" />
+    <Compile Include="Extension\CommonObjectEx\DateTimeEx.cs" />
+    <Compile Include="Extension\CommonObjectEx\StringEx.cs" />
+    <Compile Include="Extension\DependencyObjectEx\BitmapImageEx.cs" />
+    <Compile Include="Extension\DependencyObjectEx\FlipViewEx.cs" />
+    <Compile Include="Extension\DependencyObjectEx\FrameworkElementEx.cs" />
+    <Compile Include="Extension\DependencyObjectEx\ImageEx.cs" />
+    <Compile Include="Extension\DependencyObjectEx\MessageDialogEx.cs" />
+    <Compile Include="Extension\DependencyObjectEx\ScrollViewerEx.cs" />
+    <Compile Include="Extension\DependencyObjectEx\StoryboardEx.cs" />
+    <Compile Include="Extension\DependencyObjectEx\WriteableBitmapEx.cs" />
+    <Compile Include="Extension\IOEx\StorageFolderEx.cs" />
+    <Compile Include="Extension\VisualTreeHelperEx.cs" />
+    <Compile Include="Helper\CommonHelper.cs" />
+    <Compile Include="Helper\CoreVisualTreeHelper.cs" />
+    <Compile Include="Helper\DeviceHelper.cs" />
+    <Compile Include="Helper\DicStore.cs" />
+    <Compile Include="Helper\FileHelper.cs" />
+    <Compile Include="Helper\JsonConvertHelper.cs" />
+    <Compile Include="Helper\ParamsConvertHelper.cs" />
+    <Compile Include="Helper\QVideoHelper.cs" />
+    <Compile Include="Helper\RandomAnimationHelper.cs" />
+    <Compile Include="Helper\SettingsStore.cs" />
+    <Compile Include="Helper\WebDataHelper.cs" />
+    <Compile Include="Helper\WebDownFileHelper.cs" />
+    <Compile Include="Locator\ViewModelLocator.cs" />
+    <Compile Include="Model\Ency\EncyModel.cs" />
+    <Compile Include="Model\Ency\WeaponDetailModel.cs" />
+    <Compile Include="Model\Map\MapDetailModel.cs" />
+    <Compile Include="Model\Map\MapModel.cs" />
+    <Compile Include="Model\NavigationRootModel.cs" />
+    <Compile Include="Model\News\NewsActivityModel.cs" />
+    <Compile Include="Model\News\NewsCommonModel.cs" />
+    <Compile Include="Model\News\NewsModelPropertyBase.cs" />
+    <Compile Include="Model\Video\VideoCategoryModel.cs" />
+    <Compile Include="Model\Video\VideoListModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Selector\ListViewHeaderDataTemplateSelector.cs" />
+    <Compile Include="Selector\NewsActivityDataTemplateSelector.cs" />
+    <Compile Include="Selector\NewsCommonDataTemplateSelector.cs" />
+    <Compile Include="UIControl\DataTemplates\CategoryUIControl.xaml.cs">
+      <DependentUpon>CategoryUIControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UIControl\DataTemplates\Ency\EncyWeaponUIControl.xaml.cs">
+      <DependentUpon>EncyWeaponUIControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UIControl\DataTemplates\Map\MapDetailUIControl.xaml.cs">
+      <DependentUpon>MapDetailUIControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UIControl\DataTemplates\Map\MapListUIControl.xaml.cs">
+      <DependentUpon>MapListUIControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UIControl\DataTemplates\News\NewsActivityMobileUIControl.xaml.cs">
+      <DependentUpon>NewsActivityMobileUIControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UIControl\DataTemplates\News\NewsActivityUIControl.xaml.cs">
+      <DependentUpon>NewsActivityUIControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UIControl\DataTemplates\News\NewsCommonMobileUIControl.xaml.cs">
+      <DependentUpon>NewsCommonMobileUIControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UIControl\DataTemplates\News\NewsCommonUIControl.xaml.cs">
+      <DependentUpon>NewsCommonUIControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UIControl\DataTemplates\Video\VideoCategoryHubUIControlxaml.xaml.cs">
+      <DependentUpon>VideoCategoryHubUIControlxaml.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UIControl\DataTemplates\Video\VideoCategoryPivotUIControl.xaml.cs">
+      <DependentUpon>VideoCategoryPivotUIControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UIControl\DataTemplates\Video\VideoListUIControl.xaml.cs">
+      <DependentUpon>VideoListUIControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UIControl\UserControls\MapDetailFlipUICtrl\MapDetailFlipBox.cs" />
+    <Compile Include="UIControl\UserControls\MapDetailFlipUICtrl\MapDetailFlipUIControl.xaml.cs">
+      <DependentUpon>MapDetailFlipUIControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UIControl\UserControls\ProgressUICtrl\ProgressBox.cs" />
+    <Compile Include="UIControl\UserControls\ProgressUICtrl\ProgressUIControl.xaml.cs">
+      <DependentUpon>ProgressUIControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UIControl\UserControls\PullToRefreshUICtrl\PullToRefreshScrollViewer .cs" />
+    <Compile Include="UIControl\UserControls\RetryUICtrl\RetryBox.cs" />
+    <Compile Include="UIControl\UserControls\RetryUICtrl\RetryUIControl.xaml.cs">
+      <DependentUpon>RetryUIControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UIControl\UserControls\SliderViewUICtrl\SliderViewUIControl.xaml.cs">
+      <DependentUpon>SliderViewUIControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UIControl\UserControls\VideoPlayUICtrl\VideoPlayBox.cs" />
+    <Compile Include="UIControl\UserControls\VideoPlayUICtrl\VideoPlayUIControl.xaml.cs">
+      <DependentUpon>VideoPlayUIControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UIControl\UserControls\WeaponDetailUICtrl\WeaponDetailBox.cs" />
+    <Compile Include="UIControl\UserControls\WeaponDetailUICtrl\WeaponDetailUIControl.xaml.cs">
+      <DependentUpon>WeaponDetailUIControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UIControl\UserControls\WelcomeUICtrl\WelcomeBox.cs" />
+    <Compile Include="UIControl\UserControls\WelcomeUICtrl\WelcomeUIControl.xaml.cs">
+      <DependentUpon>WelcomeUIControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModelAttribute\Ency\EncyViewModelAttribute.cs" />
+    <Compile Include="ViewModelAttribute\Map\MapDetailViewModelAttribute.cs" />
+    <Compile Include="ViewModelAttribute\Map\MapListViewModelAttribute.cs" />
+    <Compile Include="ViewModelAttribute\NavigationRootViewModelAttribute.cs" />
+    <Compile Include="ViewModelAttribute\News\NewsViewModelAttribute.cs" />
+    <Compile Include="ViewModelAttribute\Video\VideoCategoryViewModelAttribute.cs" />
+    <Compile Include="ViewModelAttribute\Video\VideoListViewModelAttribute.cs" />
+    <Compile Include="ViewModelExecuteCommand\News\NewsViewModelExecuteCommand.cs" />
+    <Compile Include="ViewModelExecuteCommand\Video\VideoCategoryViewModelExecuteCommand.cs" />
+    <Compile Include="ViewModelExecuteCommand\Video\VideoListViewModelExecuteCommand.cs" />
+    <Compile Include="ViewModel\Ency\EncyViewModel.cs" />
+    <Compile Include="ViewModel\Map\MapDetailViewModel.cs" />
+    <Compile Include="ViewModel\Map\MapListViewModel.cs" />
+    <Compile Include="ViewModel\NavigationRootViewModel.cs" />
+    <Compile Include="ViewModel\News\NewsViewModel.cs" />
+    <Compile Include="ViewModel\Video\VideoCategoryViewModel.cs" />
+    <Compile Include="ViewModel\Video\VideoListViewModel.cs" />
+    <Compile Include="View\About\AboutPage.xaml.cs">
+      <DependentUpon>AboutPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Ency\EncyPage.xaml.cs">
+      <DependentUpon>EncyPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Map\MapDetailPage.xaml.cs">
+      <DependentUpon>MapDetailPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Map\MapPage.xaml.cs">
+      <DependentUpon>MapPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\NavigationRootPage.xaml.cs">
+      <DependentUpon>NavigationRootPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\News\NewsDetailPage.xaml.cs">
+      <DependentUpon>NewsDetailPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\News\NewsPage.xaml.cs">
+      <DependentUpon>NewsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Video\ActPage.xaml.cs">
+      <DependentUpon>ActPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Video\ChampionPage.xaml.cs">
+      <DependentUpon>ChampionPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Video\OfficialPage.xaml.cs">
+      <DependentUpon>OfficialPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Video\PlayPage.xaml.cs">
+      <DependentUpon>PlayPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Video\SuperPage.xaml.cs">
+      <DependentUpon>SuperPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Video\TeachPage.xaml.cs">
+      <DependentUpon>TeachPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Video\VideoPage.xaml.cs">
+      <DependentUpon>VideoPage.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <AppxManifest Include="Package.appxmanifest">
+      <SubType>Designer</SubType>
+    </AppxManifest>
+    <None Include="MyCF_TemporaryKey.pfx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\ayy_1.png" />
+    <Content Include="Assets\Category\about.png" />
+    <Content Include="Assets\Category\activity.png" />
+    <Content Include="Assets\Category\cartoon.png" />
+    <Content Include="Assets\Category\champion.png" />
+    <Content Include="Assets\Category\map.png" />
+    <Content Include="Assets\Category\news.png" />
+    <Content Include="Assets\Category\set.png" />
+    <Content Include="Assets\Category\video.png" />
+    <Content Include="Assets\Category\way.png" />
+    <Content Include="Assets\line.png" />
+    <Content Include="Assets\Refresh\bullet.png" />
+    <Content Include="Assets\Refresh\headshot.png" />
+    <Content Include="Assets\Refresh\soldier.png" />
+    <Content Include="Assets\Square310x310Logo.scale-100.png" />
+    <Content Include="Assets\Square310x310Logo.scale-125.png" />
+    <Content Include="Assets\Square310x310Logo.scale-150.png" />
+    <Content Include="Assets\Square310x310Logo.scale-200.png" />
+    <Content Include="Assets\Square44x44Logo.scale-100.png" />
+    <Content Include="Assets\StoreLogo.scale-100.png" />
+    <Content Include="Assets\StoreLogo.scale-125.png" />
+    <Content Include="Assets\StoreLogo.scale-150.png" />
+    <Content Include="Assets\StoreLogo.scale-200.png" />
+    <Content Include="Assets\StoreLogo.scale-400.png" />
+    <Content Include="Assets\weaponBg.png" />
+    <None Include="Package.StoreAssociation.xml" />
+    <Content Include="Audio\Refresh\Headshot_GR.wav" />
+    <Content Include="Html\js\Gesture.js" />
+    <Content Include="Properties\Default.rd.xml" />
+    <Content Include="Assets\LockScreenLogo.scale-200.png" />
+    <Content Include="Assets\SplashScreen.scale-200.png" />
+    <Content Include="Assets\Square150x150Logo.scale-200.png" />
+    <Content Include="Assets\Square44x44Logo.scale-200.png" />
+    <Content Include="Assets\Square44x44Logo.targetsize-24_altform-unplated.png" />
+    <Content Include="Assets\Wide310x150Logo.scale-200.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Page Include="Style\CommonStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Page>
+    <Page Include="Style\DataTemplateStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UIControl\DataTemplates\CategoryUIControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UIControl\DataTemplates\Ency\EncyWeaponUIControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UIControl\DataTemplates\Map\MapDetailUIControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UIControl\DataTemplates\Map\MapListUIControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UIControl\DataTemplates\News\NewsActivityMobileUIControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UIControl\DataTemplates\News\NewsActivityUIControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UIControl\DataTemplates\News\NewsCommonMobileUIControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UIControl\DataTemplates\News\NewsCommonUIControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UIControl\DataTemplates\Video\VideoCategoryHubUIControlxaml.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UIControl\DataTemplates\Video\VideoCategoryPivotUIControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UIControl\DataTemplates\Video\VideoListUIControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UIControl\UserControls\MapDetailFlipUICtrl\MapDetailFlipUIControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UIControl\UserControls\ProgressUICtrl\ProgressUIControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UIControl\UserControls\RetryUICtrl\RetryUIControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UIControl\UserControls\SliderViewUICtrl\SliderViewUIControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UIControl\UserControls\VideoPlayUICtrl\VideoPlayUIControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UIControl\UserControls\WeaponDetailUICtrl\WeaponDetailUIControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UIControl\UserControls\WelcomeUICtrl\WelcomeUIControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\About\AboutPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Ency\EncyPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Map\MapDetailPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Map\MapPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\NavigationRootPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\News\NewsDetailPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\News\NewsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Video\ActPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Video\ChampionPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Video\OfficialPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Video\PlayPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Video\SuperPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Video\TeachPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Video\VideoPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Api\ApiParams\" />
+  </ItemGroup>
+  <ItemGroup>
+    <SDKReference Include="Microsoft.PlayerFramework.Xaml, Version=2.0.0.0">
+      <Name>Microsoft Player Framework</Name>
+    </SDKReference>
+    <SDKReference Include="WindowsMobile, Version=10.0.10240.0">
+      <Name>Windows Mobile Extensions for the UWP</Name>
+    </SDKReference>
+  </ItemGroup>
+  <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
+    <VisualStudioVersion>14.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\WindowsXaml\v$(VisualStudioVersion)\Microsoft.Windows.UI.Xaml.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

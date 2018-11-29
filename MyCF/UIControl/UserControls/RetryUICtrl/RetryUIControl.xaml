@@ -1,0 +1,23 @@
+﻿<MyControl:UIControlBase
+    xmlns:MyControl="using:MyCF.Base"
+    x:Class="MyCF.UIControl.UserControls.RetryUICtrl.RetryUIControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:MyCF.UIControl.UserControls.RetryUICtrl"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="300"
+    d:DesignWidth="400">
+
+    <Grid x:Name="grid">
+        <Grid VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <TextBlock x:Name="tbFailure" Text="没有网络，请确认网络连接"/>
+            <Button RelativePanel.Below="tbFailure" Content="重试" Grid.Row="1" HorizontalAlignment="Center" Margin="0,10,0,0" Click="Button_Click" />
+        </Grid>
+    </Grid>
+</MyControl:UIControlBase>

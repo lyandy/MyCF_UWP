@@ -1,0 +1,43 @@
+﻿<MyControl:UIControlBase
+    xmlns:MyControl="using:MyCF.Base"
+    x:Class="MyCF.UIControl.UserControls.VideoPlayUICtrl.VideoPlayUIControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:MyCF.UIControl.UserControls.VideoPlayUICtrl"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    xmlns:mmppf="using:Microsoft.PlayerFramework"
+    xmlns:bam="using:Brain.Animate"
+    Loaded="UserControl_Loaded"
+    KeyUp="UIControlBase_KeyUp">
+
+    <Grid x:Name="grid" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+        <Grid x:Name="gridBeneath" Background="#BB000000" Opacity="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+        <mmppf:MediaPlayer  
+            Name="videoMediaPlayer"                 
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            IsFullScreenVisible="True" 
+            IsDurationVisible="True"
+            IsTimeElapsedVisible="True"
+            IsTimeRemainingVisible="False"
+            IsResolutionIndicatorVisible="True"
+            IsVolumeVisible="True"
+            RequestedTheme="Dark"
+            AutoPlay="True"
+            IsFullScreenChanged="videoMediaPlayer_IsFullScreenChanged" RenderTransformOrigin="0.5, 0.5"/>
+
+        <bam:AnimatingTextBlock x:Name="tbBam" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Microsoft YaHei" Interval="0.1" FontSize="25" Opacity="1"/>
+
+        <TextBlock x:Name="tbNotice" Text="抱歉，视频编码解析发生错误。" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center" Visibility="Collapsed"/>
+        
+        <StackPanel x:Name="relPanel" VerticalAlignment="Top" HorizontalAlignment="Right" Orientation="Horizontal" Margin="5">
+            <AppBarButton x:Name="appVolumeBtn" Foreground="White" Icon="{Binding Path=IsMuted,ElementName=videoMediaPlayer,Converter={StaticResource boolToAppBarButtonIconConverter}}" Label="{Binding Path=IsMuted,ElementName=videoMediaPlayer,Converter={StaticResource boolToAppBarButtonLabelConverter}}" Click="appVolumeBtn_Click" Opacity="0" Style="{StaticResource VideoAppBarButtonStyle}"/>
+            <AppBarButton x:Name="appFullScreenBtn" Foreground="White" Icon="FullScreen" Label="全屏" Click="appFullScreenBtn_Click" Opacity="0" Style="{StaticResource VideoAppBarButtonStyle}"/>
+            <!--<AppBarButton x:Name="appDownBtn" Icon="Download" Label="离线" Click="appDownBtn_Click" Foreground="White" Opacity="0" Visibility="Collapsed"/>-->
+            <AppBarButton x:Name="appCloseBtn" Icon="Cancel" Label="关闭" RelativePanel.RightOf="appDownBtn" Click="close_Click" Foreground="White" Opacity="0" Style="{StaticResource VideoAppBarButtonStyle}"/>
+        </StackPanel>
+    </Grid>
+
+</MyControl:UIControlBase>

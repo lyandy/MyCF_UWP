@@ -1,0 +1,116 @@
+﻿<Page
+    x:Class="MyCF.View.Video.ChampionPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:MyCF.View.Video"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:LocalCmdEx="using:MyCF.Extension.CommandEx"
+    xmlns:Selector="using:MyCF.Selector"
+    mc:Ignorable="d">
+
+    <Grid Background="{StaticResource CommonBackgroundBrush}">
+        <Grid x:Name="AnimationGrid">
+            <Grid Height="43" Background="{StaticResource pivotHeaderBackgroundBrush}" VerticalAlignment="Top"/>
+            <Pivot x:Name="pi" Background="Transparent" Margin="0,0,0,0" LocalCmdEx:PivotCommandEx.LoadedCommand="{Binding ExeCommandVideoListVM.ChampionPivotLoadedCommand,Source={StaticResource Locator}}">
+                <PivotItem Margin="0,0,0,0" Background="{StaticResource CommonBackgroundBrush}">
+                    <PivotItem.Header>
+                        <TextBlock Text="CFPL" Tag="Top" Margin="0,5,0,0"  FontSize="17"/>
+                    </PivotItem.Header>
+                    <ListView ShowsScrollingPlaceholders="True" Margin="0,2,0,0" Padding="2,0,2,0" ItemsSource="{Binding Path=VideoChampionCFPLCollection}" ItemTemplate="{StaticResource VideoListDataTemplate}" ItemContainerStyle="{StaticResource CommonListViewItemStyle}" LocalCmdEx:ListViewCommandEx.LoadMoreCommand="{Binding ExeCommandVideoListVM.ChampionListViewLoadMoreCommand, Source={StaticResource Locator}}">
+                        <ListView.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <ItemsWrapGrid Orientation="Horizontal">
+                                    <ItemsWrapGrid.ChildrenTransitions>
+                                        <TransitionCollection/>
+                                    </ItemsWrapGrid.ChildrenTransitions>
+                                </ItemsWrapGrid>
+                            </ItemsPanelTemplate>
+                        </ListView.ItemsPanel>
+                    </ListView>
+                </PivotItem>
+                <PivotItem Margin="0,0,0,0" Background="{StaticResource CommonBackgroundBrush}">
+                    <PivotItem.Header>
+                        <TextBlock Text="百城联赛" Tag="Top" Margin="0,5,0,0"  FontSize="17"/>
+                    </PivotItem.Header>
+                    <ListView ShowsScrollingPlaceholders="True" Margin="0,2,0,0" Padding="2,0,2,0"  ItemsSource="{Binding Path=VideoChampionHundredsOfCityCollection}" ItemTemplate="{StaticResource VideoListDataTemplate}" ItemContainerStyle="{StaticResource CommonListViewItemStyle}" LocalCmdEx:ListViewCommandEx.LoadMoreCommand="{Binding ExeCommandVideoListVM.ChampionListViewLoadMoreCommand, Source={StaticResource Locator}}">
+                        <ListView.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <ItemsWrapGrid Orientation="Horizontal">
+                                    <ItemsWrapGrid.ChildrenTransitions>
+                                        <TransitionCollection/>
+                                    </ItemsWrapGrid.ChildrenTransitions>
+                                </ItemsWrapGrid>
+                            </ItemsPanelTemplate>
+                        </ListView.ItemsPanel>
+                    </ListView>
+                </PivotItem>
+                <PivotItem Margin="0,0,0,0" Background="{StaticResource CommonBackgroundBrush}">
+
+                    <PivotItem.Header>
+                        <TextBlock Text="全民联赛" Tag="Top" Margin="0,5,0,0"  FontSize="17"/>
+                    </PivotItem.Header>
+                    <ListView ShowsScrollingPlaceholders="True" Margin="0,2,0,0" Padding="2,0,2,0" ItemsSource="{Binding VideoChampionAllPeopleCollection}" ItemTemplate="{StaticResource VideoListDataTemplate}" ItemContainerStyle="{StaticResource CommonListViewItemStyle}" LocalCmdEx:ListViewCommandEx.LoadMoreCommand="{Binding ExeCommandVideoListVM.ChampionListViewLoadMoreCommand, Source={StaticResource Locator}}">
+                        <ListView.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <ItemsWrapGrid Orientation="Horizontal">
+                                    <ItemsWrapGrid.ChildrenTransitions>
+                                        <TransitionCollection/>
+                                    </ItemsWrapGrid.ChildrenTransitions>
+                                </ItemsWrapGrid>
+                            </ItemsPanelTemplate>
+                        </ListView.ItemsPanel>
+                    </ListView>
+                </PivotItem>
+                <PivotItem Margin="0,0,0,0" Background="{StaticResource CommonBackgroundBrush}">
+                    <PivotItem.Header>
+                        <TextBlock Text="CFDL" Tag="Top" Margin="0,5,0,0"  FontSize="17"/>
+                    </PivotItem.Header>
+                    <ListView ShowsScrollingPlaceholders="True" Margin="0,2,0,0" Padding="2,0,2,0" ItemsSource="{Binding Path=VideoChampionCFDLCollection}" ItemTemplate="{StaticResource VideoListDataTemplate}" ItemContainerStyle="{StaticResource CommonListViewItemStyle}" LocalCmdEx:ListViewCommandEx.LoadMoreCommand="{Binding ExeCommandVideoListVM.ChampionListViewLoadMoreCommand, Source={StaticResource Locator}}">
+                        <ListView.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <ItemsWrapGrid Orientation="Horizontal">
+                                    <ItemsWrapGrid.ChildrenTransitions>
+                                        <TransitionCollection/>
+                                    </ItemsWrapGrid.ChildrenTransitions>
+                                </ItemsWrapGrid>
+                            </ItemsPanelTemplate>
+                        </ListView.ItemsPanel>
+                    </ListView>
+                </PivotItem>
+                <PivotItem Margin="0,0,0,0" Background="{StaticResource CommonBackgroundBrush}">
+                    <PivotItem.Header>
+                        <TextBlock Text="CFS" Tag="Top" Margin="0,5,0,0"  FontSize="17"/>
+                    </PivotItem.Header>
+                    <ListView ShowsScrollingPlaceholders="True" Margin="0,2,0,0" Padding="2,0,2,0" ItemsSource="{Binding Path=VideoChampionCFSCollection}" ItemTemplate="{StaticResource VideoListDataTemplate}" ItemContainerStyle="{StaticResource CommonListViewItemStyle}" LocalCmdEx:ListViewCommandEx.LoadMoreCommand="{Binding ExeCommandVideoListVM.ChampionListViewLoadMoreCommand, Source={StaticResource Locator}}">
+                        <ListView.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <ItemsWrapGrid Orientation="Horizontal">
+                                    <ItemsWrapGrid.ChildrenTransitions>
+                                        <TransitionCollection/>
+                                    </ItemsWrapGrid.ChildrenTransitions>
+                                </ItemsWrapGrid>
+                            </ItemsPanelTemplate>
+                        </ListView.ItemsPanel>
+                    </ListView>
+                </PivotItem>
+                <PivotItem Margin="0,0,0,0" Background="{StaticResource CommonBackgroundBrush}">
+                    <PivotItem.Header>
+                        <TextBlock Text="其他" Tag="Top" Margin="0,5,0,0"  FontSize="17"/>
+                    </PivotItem.Header>
+                    <ListView ShowsScrollingPlaceholders="True" Margin="0,2,0,0" Padding="2,0,2,0" ItemsSource="{Binding Path=VideoChampionOtherCollection}" ItemTemplate="{StaticResource VideoListDataTemplate}" ItemContainerStyle="{StaticResource CommonListViewItemStyle}" LocalCmdEx:ListViewCommandEx.LoadMoreCommand="{Binding ExeCommandVideoListVM.ChampionListViewLoadMoreCommand, Source={StaticResource Locator}}">
+                        <ListView.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <ItemsWrapGrid Orientation="Horizontal">
+                                    <ItemsWrapGrid.ChildrenTransitions>
+                                        <TransitionCollection/>
+                                    </ItemsWrapGrid.ChildrenTransitions>
+                                </ItemsWrapGrid>
+                            </ItemsPanelTemplate>
+                        </ListView.ItemsPanel>
+                    </ListView>
+                </PivotItem>
+            </Pivot>
+        </Grid>
+    </Grid>
+</Page>

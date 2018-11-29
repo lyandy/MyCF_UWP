@@ -1,0 +1,15 @@
+﻿<Page
+    x:Class="MyCF.View.News.NewsDetailPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:MyCF.View.News"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{StaticResource CommonBackgroundBrush}">
+        <Grid x:Name="AnimationGrid">
+            <WebView x:Name="wv" Visibility="Collapsed" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" ScriptNotify="wv_ScriptNotify"/>
+        </Grid>
+    </Grid>
+</Page>

@@ -1,0 +1,132 @@
+﻿<UserControl
+    x:Class="MyCF.UIControl.UserControls.SliderViewUICtrl.SliderViewUIControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:MyCF.UIControl.UserControls.SliderViewUICtrl"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:Extensions="using:MyCF.Extension.DependencyObjectEx"
+    mc:Ignorable="d"
+    d:DesignHeight="300"
+    d:DesignWidth="400">
+
+    <UserControl.Resources>
+        <Style x:Key="ItemContainerStyle" TargetType="ListBoxItem">
+            <Setter Property="Width" Value="10"/>
+            <Setter Property="Height" Value="10"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ListBoxItem">
+                        <Grid Background="{TemplateBinding Background}">
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup x:Name="CommonStates" >
+                                    <VisualState x:Name="Normal"/>
+                                    <VisualState x:Name="PointerOver"/>
+                                </VisualStateGroup>
+                                <VisualStateGroup x:Name="SelectionStates" >
+                                    <VisualState x:Name="Unselected" />
+                                    <VisualState x:Name="Selected">
+                                        <Storyboard>
+                                            <ColorAnimation Storyboard.TargetName="fillColor" Storyboard.TargetProperty="(Ellipse.Fill).(SolidColorBrush.Color)" BeginTime="00:00:00" Duration="0" To="#FFDA5D60" />
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="SelectedUnfocused">
+                                        <Storyboard>
+                                            <ColorAnimation Storyboard.TargetName="fillColor" Storyboard.TargetProperty="(Ellipse.Fill).(SolidColorBrush.Color)" BeginTime="00:00:00" Duration="0"  To="#FFDA5D60" />
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="SelectedPressed">
+                                        <Storyboard>
+                                            <ColorAnimation Storyboard.TargetName="fillColor" Storyboard.TargetProperty="(Ellipse.Fill).(SolidColorBrush.Color)" BeginTime="00:00:00" Duration="0"  To="#FFDA5D60" />
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="SelectedPointerOver">
+                                        <Storyboard>
+                                            <ColorAnimation Storyboard.TargetName="fillColor" Storyboard.TargetProperty="(Ellipse.Fill).(SolidColorBrush.Color)" BeginTime="00:00:00" Duration="0"  To="#FFDA5D60"/>
+                                        </Storyboard>
+                                    </VisualState>
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+                            <Ellipse x:Name="fillColor" Width="5" Height="5" Fill="#FFBFBFBF" Margin="2,3,2,0" Opacity="0.8"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="ListBoxStyle" TargetType="ListBox">
+            <Setter Property="Foreground" Value="{StaticResource ListBoxForegroundThemeBrush}"/>
+            <Setter Property="Background" Value="{StaticResource ListBoxBackgroundThemeBrush}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource ListBoxBorderThemeBrush}"/>
+            <Setter Property="BorderThickness" Value="{StaticResource ListBoxBorderThemeThickness}"/>
+            <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled"/>
+            <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto"/>
+            <Setter Property="ScrollViewer.HorizontalScrollMode" Value="Disabled"/>
+            <Setter Property="ScrollViewer.IsHorizontalRailEnabled" Value="True"/>
+            <Setter Property="ScrollViewer.VerticalScrollMode" Value="Enabled"/>
+            <Setter Property="ScrollViewer.IsVerticalRailEnabled" Value="True"/>
+            <Setter Property="ScrollViewer.ZoomMode" Value="Disabled"/>
+            <Setter Property="IsTabStop" Value="False"/>
+            <Setter Property="TabNavigation" Value="Once"/>
+            <Setter Property="FontFamily" Value="{StaticResource ContentControlThemeFontFamily}"/>
+            <Setter Property="FontSize" Value="{StaticResource ControlContentThemeFontSize}"/>
+            <Setter Property="ItemsPanel">
+                <Setter.Value>
+                    <ItemsPanelTemplate>
+                        <VirtualizingStackPanel/>
+                    </ItemsPanelTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ListBox">
+                        <Border x:Name="LayoutRoot" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}">
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup x:Name="CommonStates">
+                                    <VisualState x:Name="Normal"/>
+                                    <VisualState x:Name="Disabled"/>
+                                </VisualStateGroup>
+                                <VisualStateGroup x:Name="FocusStates">
+                                    <VisualState x:Name="Focused"/>
+                                    <VisualState x:Name="Unfocused"/>
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+                            <ScrollViewer x:Name="ScrollViewer" HorizontalScrollMode="{TemplateBinding ScrollViewer.HorizontalScrollMode}" HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}" IsHorizontalRailEnabled="{TemplateBinding ScrollViewer.IsHorizontalRailEnabled}" IsVerticalRailEnabled="{TemplateBinding ScrollViewer.IsVerticalRailEnabled}" Padding="{TemplateBinding Padding}" TabNavigation="{TemplateBinding TabNavigation}" VerticalScrollBarVisibility="{TemplateBinding ScrollViewer.VerticalScrollBarVisibility}" VerticalScrollMode="{TemplateBinding ScrollViewer.VerticalScrollMode}" ZoomMode="{TemplateBinding ScrollViewer.ZoomMode}">
+                                <ItemsPresenter/>
+                            </ScrollViewer>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Resources>
+
+    <Grid x:Name="rootGrid" Loaded="rootGrid_Loaded" Opacity="0" Background="White" DataContextChanged="rootGrid_DataContextChanged">
+        <FlipView x:Name="newsFlipView" Loaded="newsFlipView_Loaded" Background="White" ItemsSource="{Binding FirstNewsAdCollection}"  LayoutUpdated="newsFlipView_LayoutUpdated">
+            <FlipView.ItemTemplate>
+                <DataTemplate>
+                    <Grid Tapped="Grid_Tapped" Background="White">
+                        <Grid>
+                            <Image x:Name="img" Stretch="Fill" Source="{Binding ConvertImageUrl.AsyncValue}" Loaded="img_Loaded" Extensions:ImageEx.FadeInOnLoaded="True"/>
+                        </Grid>
+                        <Grid Height="27" VerticalAlignment="Bottom">
+                            <Rectangle Fill="#88000000"/>
+                            <StackPanel Orientation="Horizontal">
+                                <Border Margin="5,0,0,0" Height="18" Width="30" Background="#FFDA5D60" CornerRadius="3" VerticalAlignment="Center" Visibility="{Binding Path=IsVideo,Converter={StaticResource boolToVisibilityConverter}}">
+                                    <TextBlock Text="视频" FontSize="12" Margin="0,0,0,2" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"/>
+                                </Border>
+                                <TextBlock x:Name="newsTitle" Margin="5,0,0,0" Text="{Binding Path=title}" Foreground="White" FontSize="13.5" HorizontalAlignment="Left" VerticalAlignment="Center" TextTrimming="WordEllipsis" TextWrapping="NoWrap" />
+                            </StackPanel>
+                        </Grid>
+                    </Grid>
+                </DataTemplate>
+            </FlipView.ItemTemplate>
+        </FlipView>
+        <ListBox x:Name="listBox" Height="27" Margin="0,0,5,0" Background="Transparent" HorizontalAlignment="Right" VerticalAlignment="Bottom" ItemContainerStyle="{StaticResource ItemContainerStyle}" Style="{StaticResource ListBoxStyle}" ItemsSource="{Binding Path=ItemsSource, ElementName=newsFlipView}" SelectedIndex="{Binding Path=SelectedIndex, ElementName=newsFlipView}">
+            <ListBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center"/>
+                </ItemsPanelTemplate>
+            </ListBox.ItemsPanel>
+        </ListBox>
+    </Grid>
+</UserControl>

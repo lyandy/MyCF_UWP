@@ -1,0 +1,34 @@
+﻿<MyControl:UIControlBase
+    xmlns:MyControl="using:MyCF.Base"
+    x:Class="MyCF.UIControl.DataTemplates.NewsCommonUIControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:MyCF.UIControl.DataTemplates"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:Extensions="using:MyCF.Extension.DependencyObjectEx"
+    mc:Ignorable="d"
+   >
+    
+    <Grid x:Name="grid" HorizontalAlignment="Left" Background="#FFF2F2F2" Margin="8,0,0,8" Height="230" DataContextChanged="grid_DataContextChanged" Tapped="grid_Tapped" Opacity="0">
+        <Border MaxWidth="{Binding Path=Width, ElementName=grid}" Margin="0,0,0,0"  VerticalAlignment="Top">
+            <Image Source="ms-appx:///Assets/line.png" Stretch="UniformToFill"/>
+        </Border>
+        <StackPanel Background="{x:Null}" >
+            <StackPanel Margin="0,0,0,0" VerticalAlignment="Top">
+                <TextBlock Text="{Binding title}"  Margin="20,0,15,0" Foreground="{Binding Path=NewsTitleForeground}" FontSize="20" FontFamily="Microsoft YaHei UI" FontWeight="Normal" VerticalAlignment="Center" HorizontalAlignment="Left" LineHeight="25" TextWrapping="Wrap" MaxWidth="{Binding Path=Width, ElementName=grid}"/>
+                <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
+                    <Path Data="M30.695017,13.620034L33.317017,13.620034 33.317017,28.919743 33.524267,29.019681C34.184819,29.37884,34.712941,29.951163,35.016142,30.643819L35.08231,30.810035 46.039017,30.810035 46.039017,33.432034 34.978114,33.432034 34.889634,33.615611C34.315306,34.672444 33.195316,35.390985 31.908503,35.390985 30.035774,35.390985 28.517994,33.870769 28.517994,32.000501 28.517994,30.5978 29.371745,29.392002 30.588678,28.876772L30.695017,28.837811z M31.999999,4.0299997C16.551,4.0299997 4.0259991,16.55 4.0259991,32.000001 4.0259991,47.450002 16.551,59.969998 31.999999,59.969998 47.448999,59.969998 59.973999,47.450002 59.973999,32.000001 59.973999,16.55 47.448999,4.0299997 31.999999,4.0299997z M31.999999,0C49.672998,0 63.999998,14.33 63.999998,32.000001 63.999998,49.669999 49.672998,64.000001 31.999999,64.000001 14.327,64.000001 0,49.669999 0,32.000001 0,14.33 14.327,0 31.999999,0z" Stretch="Uniform" Fill="#FF999999" Width="13" Height="13" Margin="20,0,0,15"/>
+                    <TextBlock Text="{Binding publication_date}" Foreground="#FF999999"  FontSize="12" Margin="5,0,0,15" FontWeight="Normal"/>
+                    <Border x:Name="borderVideo" BorderThickness="1" BorderBrush="#FFDA5D60" Width="30" Height="13" CornerRadius="3" VerticalAlignment="Top" Margin="5,2,0,0" Visibility="{Binding Path=IsVideo,Converter={StaticResource boolToVisibilityConverter}}">
+                        <TextBlock Text="视频" FontSize="10" Foreground="{Binding Path=BorderBrush, ElementName=borderVideo}" HorizontalAlignment="Center" VerticalAlignment="Center" CharacterSpacing="160" Margin="0,0,0,1"/>
+                    </Border>
+                </StackPanel>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="{Binding summary}" x:Name="tbSummary" Margin="15,0,15,10" FontSize="15" Height="170" VerticalAlignment="Top" TextWrapping="Wrap" Foreground="Gray" />
+                <Image Source="{Binding ConvertImageUrl.AsyncValue}" Stretch="UniformToFill" Width="100" Height="100" VerticalAlignment="Top" Margin="10,8,20,0" Extensions:ImageEx.FadeInOnLoaded="True"/>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</MyControl:UIControlBase>
